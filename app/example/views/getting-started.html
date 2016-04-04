@@ -1,14 +1,27 @@
 <div class="padding">
 
   <super-navbar>
-    <super-navbar-title>
-      Welcome to Supersonic!
-    </super-navbar-title>
+    <super-navbar-title>Dev Team</super-navbar-title>
+    <super-navbar-button>
+      <i class="icon super-mic-a"></i>
+      Drag Me
+    </super-navbar-button>
   </super-navbar>
 
-  <p>Awesome! This file is located at <strong>app/example/views/getting-started.html</strong> &mdash; open it, change some text and save the file. The changes are updated to all connected devices. Cool, huh?</p>
 
-  <p>Below, you can see our multi-page navigation in action. Tap on a button to move to a new view.</p>
+
+  <div class="list">
+    <label class="item item-input item-floating-label">
+      <span class="input-label">Length</span>
+      <input type="text" placeholder="Length">
+    </label>
+    <label class="item item-input item-floating-label">
+      <span class="input-label">Location</span>
+      <input type="text" placeholder="Location">
+    </label>
+  </div>
+
+  <button class="button button-block button-stable">Send</button>
 
   <super-navigate view-id="using-the-scanner">
     <button class="button button-block button-positive icon-left super-wand">Using the AppGyver Scanner</button>
