@@ -1,4 +1,4 @@
-<div class="padding">
+<div class="padding" ng-controller="SendingFormController as form">
 
   <super-navbar>
     <super-navbar-title>Dev Team</super-navbar-title>
@@ -8,31 +8,66 @@
     </super-navbar-button>
   </super-navbar>
 
+  <ng-form>
 
+  <label class="item item-input item-select time-select">
+    <div class="input-label">
+      Hour
+    </div>
+    <select ng-model="master.hour">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+      <option>7</option>
+      <option>8</option>
+      <option>9</option>
+      <option>10</option>
+      <option>11</option>
+      <option>12</option>
+    </select>
+  </label>
+
+  <label class="item item-input item-select time-select">
+    <div class="input-label">
+      Minute
+    </div>
+    <select ng-model="master.minutes">
+      <option>00</option>
+      <option>15</option>
+      <option>30</option>
+      <option>45</option>
+    </select>
+  </label>
+
+  <label class="item item-input item-select time-select">
+    <div class="input-label">
+      AM/PM
+    </div>
+    <select ng-model="master.ampm">
+      <option>AM</option>
+      <option>PM</option>
+    </select>
+  </label>
 
   <div class="list">
     <label class="item item-input item-floating-label">
       <span class="input-label">Length</span>
-      <input type="text" placeholder="Length">
+      <input type="text" placeholder="Length" ng-model="master.length">
     </label>
     <label class="item item-input item-floating-label">
       <span class="input-label">Location</span>
-      <input type="text" placeholder="Location">
+      <input type="text" placeholder="Location" ng-model="master.location">
+    </label>
+    <label class="item item-input item-floating-lbael">
+      <span class="input-label">Purpose</span>
+      <input class="text" placeholder="Purpose" ng-model="master.purpose"></input>
     </label>
   </div>
 
-  <button class="button button-block button-stable">Send</button>
+  <button class="button button-block button-stable" ng-click="form.submit()">Send</button>
 
-  <super-navigate view-id="using-the-scanner">
-    <button class="button button-block button-positive icon-left super-wand">Using the AppGyver Scanner</button>
-  </super-navigate>
-
-  <super-navigate view-id="learn-more">
-    <button class="button button-block button-positive icon-left super-university">Learn more</button>
-  </super-navigate>
-
-  <h2>Get in touch with us!</h2>
-
-  <p>Feel free to contact us at <a href="mailto:contact@appgyver.com">contact@appgyver.com</a>, we would love to get your feedback!</p>
+  </ng-form>
 
 </div>
