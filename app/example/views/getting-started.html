@@ -13,11 +13,11 @@
   <div class="list">
     <label class="item item-input item-floating-label">
       <span class="input-label">Length</span>
-      <input type="text" placeholder="Length">
+      <input type="text" placeholder="Length" ng-model="master.length">
     </label>
     <label class="item item-input item-floating-label">
       <span class="input-label">Location</span>
-      <input type="text" placeholder="Location">
+      <input type="text" placeholder="Location" ng-model="master.location">
     </label>
   </div>
 
@@ -33,8 +33,7 @@
     <button class="button button-block button-positive icon-left super-university">Learn more</button>
   </super-navigate>
 
-  {{form.navbarTitle}}
-  {{form.hello}}
+
   <h2>Get in touch with us!</h2>
 
   <p>Feel free to contact us at <a href="mailto:contact@appgyver.com">contact@appgyver.com</a>, we would love to get your feedback!</p>
