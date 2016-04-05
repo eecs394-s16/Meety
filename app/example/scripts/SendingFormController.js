@@ -17,6 +17,10 @@ angular
         supersonic.logger.debug("Empty location field");
         return;
       }
+      if ($scope.master.purpose == null || $scope.master.purpose == "") {
+        supersonic.logger.debug("Empty purpose field");
+        return;
+      }
       
       supersonic.logger.debug($scope.master);
     };
