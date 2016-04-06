@@ -1,0 +1,28 @@
+<div class="padding" ng-controller="rsvpController as form">
+
+  <super-navbar>
+    <super-navbar-title>Meeting</super-navbar-title>
+  </super-navbar>
+
+  <div>
+  </div>
+  <div>
+  </div>
+  <div class="list"> 
+    <div class="item item-divider">
+      Participants
+    </div>
+    <div ng-repeat="person in somedummy">
+      <div class="item item-button-right">
+        {{person.name}}
+        <button class="button button-clear button-balanced" ng-if="person.attend">
+          <i class="icon super-checkmark-round"></i>
+        </button>
+        <button class="button button-clear button-assertive" ng-if="!person.attend">
+          <i class="icon super-close-round"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+</div>
