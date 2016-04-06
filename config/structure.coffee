@@ -29,10 +29,6 @@ module.exports =
       id: "rsvp"
       location: "example#rsvp"
     }
-    {
-      id: "using-the-scanner"
-      location: "example#using-the-scanner"
-    }
   ]
 
   # drawers:
