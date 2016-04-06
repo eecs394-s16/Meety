@@ -9,27 +9,27 @@ angular
     this.submit = function (){
       
       // check for empty fields
-      if ($scope.master.length == null || $scope.master.length == "") {
+      if (!$scope.master.length) {
         supersonic.logger.debug("Empty length field");
         return;
       }
-      if ($scope.master.location == null || $scope.master.location == "") {
+      if (!$scope.master.location) {
         supersonic.logger.debug("Empty location field");
         return;
       }
-      if ($scope.master.purpose == null || $scope.master.purpose == "") {
+      if (!$scope.master.purpose) {
         supersonic.logger.debug("Empty purpose field");
         return;
       }
-      if ($scope.master.hour == null || $scope.master.hour == "") {
+      if (!$scope.master.hour) {
         supersonic.logger.debug("Empty hour field");
         return;
       }
-      if ($scope.master.minutes == null || $scope.master.minutes == "") {
+      if (!$scope.master.minutes) {
         supersonic.logger.debug("Empty minutes field");
         return;
       }
-      if ($scope.master.ampm == null || $scope.master.ampm == "") {
+      if (!$scope.master.ampm) {
         supersonic.logger.debug("Empty AM/PM field");
         return;
       }
