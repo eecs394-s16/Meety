@@ -6,7 +6,7 @@
 <div class="list list-inset" ng-controller="MeetingController as meeting">
 
 
-    <div class="item item-button-right" href="#" ng-repeat="event in meetings">
+    <div class="item item-button-right" ng-repeat="event in meetings" ng-href="event.href">
       <div>{{event.purpose}}, {{event.time}} @ {{event.location}}</div>
       <button class="button button-light">
       <i class="icon super-chevron-right"></i>
