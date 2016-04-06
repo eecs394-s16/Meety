@@ -4,11 +4,19 @@
     <super-navbar-title>Meeting</super-navbar-title>
   </super-navbar>
 
-  <div>
-  </div>
-  <div>
-  </div>
+
+
   <div class="list"> 
+
+    <div class="item">Meeting time: {{meetingSpecs.hour}}:{{meetingSpecs.minutes}} {{meetingSpecs.ampm}}; Length: {{meetingSpecs.length}}</div>
+    <div class="item">Location: {{meetingSpecs.location}}</div>
+    <div class="item">Meeting purpose: {{meetingSpecs.purpose}}</div>
+
+    <div class="item item-divider">Can you make the meeting?</div>
+    <div class="item button-bar">
+      <button class="button button-clear button-balanced super-checkmark-round"></button>
+      <button class="button button-clear button-assertive super-close-round"></button>
+    </div>
     <div class="item item-divider">
       Participants
     </div>
