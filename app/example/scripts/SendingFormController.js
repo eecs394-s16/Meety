@@ -1,6 +1,6 @@
 angular
   .module('example')
-  .controller('SendingFormController', function($scope, supersonic) {
+  .controller('SendingFormController', function($scope, supersonic, $firebaseObject) {
   	$scope.master = {};
 
     $scope.navbarTitle = "Learn More";
@@ -21,7 +21,28 @@ angular
         supersonic.logger.debug("Empty purpose field");
         return;
       }
+      if ($scope.master.hour == null || $scope.master.hour == "") {
+        supersonic.logger.debug("Empty hour field");
+        return;
+      }
+      if ($scope.master.minutes == null || $scope.master.minutes == "") {
+        supersonic.logger.debug("Empty minutes field");
+        return;
+      }
+      if ($scope.master.ampm == null || $scope.master.ampm == "") {
+        supersonic.logger.debug("Empty AM/PM field");
+        return;
+      }
       
       supersonic.logger.debug($scope.master);
+      
+      // reset fields after successful submission
+      $scope.master.length = "";
+      $scope.master.location = "";
+      $scope.master.purpose = "";
+      $scope.master.hour = "";
+      $scope.master.minutes = "";
+      $scope.master.ampm = "";
+
     };
   });
