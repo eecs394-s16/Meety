@@ -15,14 +15,11 @@
       <label class="item-input-wrapper">
         <input type="text" placeholder="Name" ng-model="newName" required>
       </label>
-      <button class="button button-small" ng-click="addName(newName)">
-        Submit
-      </button>
     </div>
 
     <div class="item button-bar">
-      <a class="button button-balanced super-checkmark-round" ng-click="acceptMeeting()" ng-class="{'button-clear': buttonStatus != 1}"></a>
-      <a class="button button-assertive super-close-round" ng-click="rejectMeeting()" ng-class="{'button-clear': buttonStatus != 2}"></a>
+      <a class="button button-balanced super-checkmark-round" ng-click="acceptMeeting(newName)" ng-class="{'button-clear': buttonStatus != 1}" ng-disabled="buttonStatus"></a>
+      <a class="button button-assertive super-close-round" ng-click="rejectMeeting(newName)" ng-class="{'button-clear': buttonStatus != 2}" ng-disabled="buttonStatus"></a>
     </div>
 
     <div class="item item-divider">
