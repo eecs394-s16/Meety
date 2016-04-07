@@ -1,7 +1,9 @@
 angular
   .module('example')
-  .controller('SendingFormController', function($scope, supersonic) {
-  	$scope.master = {};
+  .controller('SendingFormController', function($scope, supersonic, $firebaseObject) {
+  	$scope.master = {attendees: [{name: "Gergap", attend: true}]};
+
+    var database = new Firebase("https://glaring-fire-5657.firebaseio.com/meetings");
 
     $scope.requestMeeting = function (){
       
@@ -33,6 +35,8 @@ angular
       
       supersonic.logger.debug($scope.master);
       
+      database.push($scope.master);
+
       // reset fields after successful submission
       $scope.master.length = "";
       $scope.master.location = "";
