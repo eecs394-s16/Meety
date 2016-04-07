@@ -3,10 +3,7 @@ angular
   .controller('SendingFormController', function($scope, supersonic, $firebaseObject) {
   	$scope.master = {};
 
-    $scope.navbarTitle = "Learn More";
-    this.hello = "some other string";
-
-    this.submit = function (){
+    $scope.submit = function (){
       
       // check for empty fields
       if (!$scope.master.length) {
@@ -43,6 +40,5 @@ angular
       $scope.master.hour = "";
       $scope.master.minutes = "";
       $scope.master.ampm = "";
-
     };
   });

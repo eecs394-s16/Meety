@@ -1,9 +1,7 @@
 angular
   .module('example')
   .controller('TeamController', function($scope, supersonic) {
-    $scope.navbarTitle = "Team";
-
-    $scope.emails = []
+    $scope.emails = [];
 
     $scope.addEmail = function(newEmail) {
     	if (newEmail) {
