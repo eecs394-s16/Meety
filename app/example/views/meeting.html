@@ -1,13 +1,13 @@
-<div ng-controller="MeetingController as meeting">
+<div ng-controller="MeetingController">
   <super-navbar>
     <super-navbar-title>Meeting Requests</super-navbar-title>
   </super-navbar>
 
   <div class="list">
-    <div ng-repeat="event in meetings">
+    <div ng-repeat="meeting in meetings">
       <div class="item">
         <super-navigate view-id="rsvp">
-          {{event.purpose}}, {{event.time}} at {{event.location}}
+          {{meeting.purpose}}, {{meeting.time}} at {{meeting.location}}
         </super-navigate>
       </div>
     </div>
