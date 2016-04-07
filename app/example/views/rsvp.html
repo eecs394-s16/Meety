@@ -10,6 +10,16 @@
     <div class="item">Meeting purpose: {{meetingSpecs.purpose}}</div>
 
     <div class="item item-divider">Can you make the meeting?</div>
+
+    <div class="item item-input-inset">
+      <label class="item-input-wrapper">
+        <input type="name" placeholder="Name" ng-model="newName" required>
+      </label>
+      <button class="button button-small" ng-click="addName(newName)">
+        Submit
+      </button>
+    </div>
+
     <div class="item button-bar">
       <a class="button button-balanced super-checkmark-round" ng-click="acceptMeeting()" ng-class="{'button-clear': buttonStatus != 1}"></a>
       <a class="button button-assertive super-close-round" ng-click="rejectMeeting()" ng-class="{'button-clear': buttonStatus != 2}"></a>
@@ -19,7 +29,7 @@
       Participants
     </div>
 
-    <div ng-repeat="person in somedummy">
+    <div ng-repeat="person in meetingSpecs.attendees">
       <div class="item item-button-right">
         {{person.name}}
         <button class="button button-clear button-balanced" ng-if="person.attend">
