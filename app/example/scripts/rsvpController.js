@@ -1,6 +1,6 @@
 angular
   .module('example')
-  .controller('rsvpController', function($scope, supersonic) {
+  .controller('rsvpController', function($scope, supersonic, $firebaseObject) {
     //Readability constants
     const buttonStatusEnum = {
       UNCONFIRMED: 0,
@@ -8,42 +8,25 @@ angular
       REJECTED: 2
     }
 
-    $scope.navbarTitle = "Learn More";
-
-    $scope.meetingSpecs = {hour: "5",minutes: "30",ampm: "PM",length: "tree fitty",location: "here",purpose: "urgent things",attendees: [{name: "Yoahne",attend: true},{name: "gergap",attend: false}]};
-
     $scope.buttonStatus = buttonStatusEnum.UNCONFIRMED;
 
-    $scope.name = "";
+    var ref = new Firebase("https://glaring-fire-5657.firebaseio.com/meetings/" + steroids.view.params.id);
+    var syncObject = $firebaseObject(ref);
+    syncObject.$bindTo($scope, "meetingSpecs");
 
-    $scope.test = "stuff"
-
-    $scope.addName = function(newName) {
-      if (newName) {
-        $scope.name = newName;
-      }
-    };
-
-
-    $scope.loadEvent = function() {
-      //upon loading event info, change thingies
-      $scope.buttonStatus = buttonStatusEnum.UNCONFIRMED;  //pull from data
-    }
-
-    $scope.acceptMeeting = function(){
+    $scope.acceptMeeting = function(newName){
       supersonic.logger.debug("Accept meeting!");
-      if ($scope.name) {
-        $scope.meetingSpecs.attendees.push({ name: $scope.name,attend: true });
+      if (newName) {
+        $scope.meetingSpecs.attendees.push({ name: newName, attend: true });
+	      $scope.buttonStatus = buttonStatusEnum.ACCEPTED;
       }
-      $scope.buttonStatus = buttonStatusEnum.ACCEPTED;
     };
 
-    $scope.rejectMeeting = function(){
+    $scope.rejectMeeting = function(newName){
       supersonic.logger.debug("Reject meeting!");
-      if ($scope.name) {
-        $scope.meetingSpecs.attendees.push({ name: $scope.name,attend: false });
-
+      if (newName) {
+        $scope.meetingSpecs.attendees.push({ name: newName, attend: false });
+	      $scope.buttonStatus = buttonStatusEnum.REJECTED;
       }
-      $scope.buttonStatus = buttonStatusEnum.REJECTED;
     };
   });
