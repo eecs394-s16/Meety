@@ -6,7 +6,7 @@
   <div class="list">
     <div ng-repeat="meeting in meetings">
       <div class="item">
-        <super-navigate view-id="rsvp">
+        <super-navigate location="example#rsvp" data-params-id="tempid">
           {{meeting.purpose}}, {{meeting.time}} at {{meeting.location}}
         </super-navigate>
       </div>
