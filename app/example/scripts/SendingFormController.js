@@ -1,9 +1,9 @@
 angular
   .module('example')
-  .controller('SendingFormController', function($scope, supersonic, $firebaseObject) {
+  .controller('SendingFormController', function($scope, supersonic) {
   	$scope.master = {};
 
-    $scope.submit = function (){
+    $scope.requestMeeting = function (){
       
       // check for empty fields
       if (!$scope.master.length) {
