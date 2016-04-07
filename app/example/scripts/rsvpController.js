@@ -1,7 +1,6 @@
 angular
   .module('example')
   .controller('rsvpController', function($scope, supersonic) {
-
     //Readability constants
     const buttonStatusEnum = {
       UNCONFIRMED: 0,
@@ -31,5 +30,4 @@ angular
       supersonic.logger.debug("Reject meeting!");
       $scope.buttonStatus = buttonStatusEnum.REJECTED;
     };
-
   });
