@@ -1,6 +1,6 @@
 angular
   .module('example')
-  .controller('rsvpController', function($scope, supersonic, $firebaseObject) {
+  .controller('rsvpController', function($scope, supersonic, meetingService) {
     //Readability constants
     const buttonStatusEnum = {
       UNCONFIRMED: 0,
@@ -10,9 +10,7 @@ angular
 
     $scope.buttonStatus = buttonStatusEnum.UNCONFIRMED;
 
-    var ref = new Firebase("https://glaring-fire-5657.firebaseio.com/meetings/" + steroids.view.params.id);
-    var syncObject = $firebaseObject(ref);
-    syncObject.$bindTo($scope, "meetingSpecs");
+    $scope.meetingSpecs = meetingService.find(steroids.view.params.id);
 
     $scope.acceptMeeting = function(newName){
       supersonic.logger.debug("Accept meeting!");
