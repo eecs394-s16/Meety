@@ -27,7 +27,10 @@
       <span class="input-label">Purpose</span>
       <input type="text" placeholder="Purpose" ng-model="master.purpose"></input>
     </label>
-  <button class="button button-block button-stable" ng-click="requestMeeting()">Schedule Meeting</button>
 
+   <super-navigate location="meety#meeting">
+      <button class="button button-block button-stable" ng-click="requestMeeting()">Schedule Meeting
+      </button>
+    </super-navigate>
 
 </div>
