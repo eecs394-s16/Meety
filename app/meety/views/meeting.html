@@ -1,4 +1,4 @@
-<div ng-controller="MeetingController">
+<div ng-controller="MeetingCtrl">
   <super-navbar>
     <super-navbar-title>Meeting Requests</super-navbar-title>
   </super-navbar>
@@ -6,7 +6,7 @@
   <div class="list">
     <div ng-repeat="meeting in meetings">
       <div class="item">
-        <super-navigate location="example#rsvp" data-params-id="{{meeting.$id}}">
+        <super-navigate location="meety#rsvp" data-params-id="{{meeting.$id}}">
           {{meeting.purpose}} {{meeting.hour}}:{{meeting.minutes}} {{meeting.ampm}} at {{meeting.location}}
         </super-navigate>
       </div>

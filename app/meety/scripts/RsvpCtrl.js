@@ -1,6 +1,6 @@
 angular
-  .module('example')
-  .controller('rsvpController', function($scope, supersonic, meetingService) {
+  .module('meety')
+  .controller('RsvpCtrl', function($scope, supersonic, Meeting) {
 
     //Readability constants
     const buttonStatusEnum = {
@@ -11,7 +11,7 @@ angular
 
     $scope.buttonStatus = buttonStatusEnum.UNCONFIRMED;
 
-   $scope.meetingSpecs = meetingService.find(steroids.view.params.id);
+   $scope.meetingSpecs = Meeting.find(steroids.view.params.id);
 
     $scope.acceptMeeting = function(newName){
       supersonic.logger.debug("Accept meeting!");
