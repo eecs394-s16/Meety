@@ -1,11 +1,9 @@
 angular
-  .module('example')
-  .controller('SendingFormController', function($scope, supersonic, $firebaseObject) {
-    $scope.master = {attendees: [{name: "Gergap", attend: true}]};
+  .module('meety')
+  .controller('RequestCtrl', function($scope, supersonic, Meeting) {
+  	$scope.master = {attendees: [{name: "Gergap", attend: true}]};
     $scope.startTime = new Date();
     $scope.endTime = new Date();
-
-    var database = new Firebase("https://glaring-fire-5657.firebaseio.com/meetings");
 
     $scope.requestMeeting = function (){
       
@@ -30,10 +28,13 @@ angular
       $scope.master.endTime = $scope.endTime.toJSON();
 
       supersonic.logger.debug($scope.master);
-      
-      database.push($scope.master);
+      Meeting.add($scope.master);
+      $scope.resetMaster();
+    };
 
       // reset fields after successful submission
+
+    $scope.resetMaster = function() {
       $scope.master.location = "";
       $scope.master.purpose = "";
       $scope.master.startTime = "";
