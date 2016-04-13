@@ -3,54 +3,22 @@
   <super-navbar>
     <super-navbar-title>Dev Team</super-navbar-title>
   </super-navbar>
-
-  <label class="item item-input item-select time-select">
+  <label class="item item-input item-select item-stacked-label">
     <div class="input-label">
-      Hour
+      Start Time
     </div>
-    <select ng-model="master.hour">
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
-      <option>6</option>
-      <option>7</option>
-      <option>8</option>
-      <option>9</option>
-      <option>10</option>
-      <option>11</option>
-      <option>12</option>
-    </select>
+    <input type="time" step="600" ng-model="startTime" placeholder="HH:mm">
+    </input>
   </label>
 
-  <label class="item item-input item-select time-select">
+  <label class="item item-input item-select item-stacked-label">
     <div class="input-label">
-      Minutes
+      End Time
     </div>
-    <select ng-model="master.minutes">
-      <option>00</option>
-      <option>15</option>
-      <option>30</option>
-      <option>45</option>
-    </select>
+    <input type="time" ng-model="endTime" placeholder="HH:mm">
+    </input>
   </label>
 
-  <label class="item item-input item-select time-select">
-    <div class="input-label">
-      AM/PM
-    </div>
-    <select ng-model="master.ampm">
-      <option>AM</option>
-      <option>PM</option>
-    </select>
-  </label>
-
-  <div class="list">
-    <label class="item item-input item-floating-label">
-      <span class="input-label">Length</span>
-      <input type="text" placeholder="Length" ng-model="master.length">
-    </label>
     <label class="item item-input item-floating-label">
       <span class="input-label">Location</span>
       <input type="text" placeholder="Location" ng-model="master.location">
@@ -59,8 +27,6 @@
       <span class="input-label">Purpose</span>
       <input type="text" placeholder="Purpose" ng-model="master.purpose"></input>
     </label>
-  </div>
-
   <button class="button button-block button-stable" ng-click="requestMeeting()">Schedule Meeting</button>
 
 

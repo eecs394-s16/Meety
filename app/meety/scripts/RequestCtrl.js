@@ -2,14 +2,12 @@ angular
   .module('meety')
   .controller('RequestCtrl', function($scope, supersonic, Meeting) {
   	$scope.master = {attendees: [{name: "Gergap", attend: true}]};
+    $scope.startTime = new Date();
+    $scope.endTime = new Date();
 
     $scope.requestMeeting = function (){
       
       // check for empty fields
-      if (!$scope.master.length) {
-        supersonic.logger.debug("Empty length field");
-        return;
-      }
       if (!$scope.master.location) {
         supersonic.logger.debug("Empty location field");
         return;
@@ -18,30 +16,28 @@ angular
         supersonic.logger.debug("Empty purpose field");
         return;
       }
-      if (!$scope.master.hour) {
-        supersonic.logger.debug("Empty hour field");
+      if (!$scope.startTime) {
+        supersonic.logger.debug("Empty startTime field");
         return;
       }
-      if (!$scope.master.minutes) {
-        supersonic.logger.debug("Empty minutes field");
+      if (!$scope.endTime) {
+        supersonic.logger.debug("Empty endTime field"); 
         return;
       }
-      if (!$scope.master.ampm) {
-        supersonic.logger.debug("Empty AM/PM field");
-        return;
-      }
-      
+      $scope.master.startTime = $scope.startTime.toJSON();
+      $scope.master.endTime = $scope.endTime.toJSON();
+
       supersonic.logger.debug($scope.master);
       Meeting.add($scope.master);
       $scope.resetMaster();
     };
 
+      // reset fields after successful submission
+
     $scope.resetMaster = function() {
-      $scope.master.length = "";
       $scope.master.location = "";
       $scope.master.purpose = "";
-      $scope.master.hour = "";
-      $scope.master.minutes = "";
-      $scope.master.ampm = "";
+      $scope.master.startTime = "";
+      $scope.master.endTime = "";
     };
   });
