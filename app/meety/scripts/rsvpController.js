@@ -1,5 +1,5 @@
 angular
-  .module('example')
+  .module('meety')
   .controller('rsvpController', function($scope, supersonic, meetingService) {
 
     //Readability constants

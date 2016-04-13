@@ -1,5 +1,5 @@
 angular
-  .module('example')
+  .module('meety')
   .factory('meetingService', function($firebaseObject, $firebaseArray) {
     
     var url = 'https://glaring-fire-5657.firebaseio.com/meetings';

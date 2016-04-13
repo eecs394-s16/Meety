@@ -7,38 +7,38 @@ module.exports =
     {
       title: "Index"
       id: "index"
-      location: "example#getting-started" # Supersonic module#view type navigation
+      location: "meety#getting-started" # Supersonic module#view type navigation
     }
     {
       title: "Meeting"
       id: "meeting"
-      location: "example#meeting"
+      location: "meety#meeting"
     }
     {
       title: "Team"
       id: "team"
-      location: "example#team"
+      location: "meety#team"
     }
   ]
 
   # rootView:
-  #   location: "example#getting-started"
+  #   location: "meety#getting-started"
 
   preloads: [
     {
       id: "rsvp"
-      location: "example#rsvp"
+      location: "meety#rsvp"
     }
   ]
 
   # drawers:
   #   left:
   #     id: "leftDrawer"
-  #     location: "example#drawer"
+  #     location: "meety#drawer"
   #     showOnAppLoad: false
   #   options:
   #     animation: "swingingDoor"
   #
   # initialView:
   #   id: "initialView"
-  #   location: "example#initial-view"
+  #   location: "meety#initial-view"

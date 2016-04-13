@@ -1,5 +1,5 @@
 angular
-  .module('example')
+  .module('meety')
   .controller('SendingFormController', function($scope, supersonic, meetingService) {
   	$scope.master = {attendees: [{name: "Gergap", attend: true}]};
 

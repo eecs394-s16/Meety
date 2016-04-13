@@ -1,5 +1,5 @@
 angular
-  .module('example')
+  .module('meety')
   .controller('TeamController', function($scope, supersonic) {
     $scope.emails = [];
 
