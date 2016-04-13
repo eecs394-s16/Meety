@@ -1,6 +1,6 @@
 angular
   .module('meety')
-  .controller('SendingFormController', function($scope, supersonic, meetingService) {
+  .controller('RequestCtrl', function($scope, supersonic, Meeting) {
   	$scope.master = {attendees: [{name: "Gergap", attend: true}]};
 
     $scope.requestMeeting = function (){
@@ -32,7 +32,7 @@ angular
       }
       
       supersonic.logger.debug($scope.master);
-      meetingService.add($scope.master);
+      Meeting.add($scope.master);
       $scope.resetMaster();
     };
 

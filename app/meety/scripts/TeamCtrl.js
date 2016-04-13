@@ -1,6 +1,6 @@
 angular
   .module('meety')
-  .controller('TeamController', function($scope, supersonic) {
+  .controller('TeamCtrl', function($scope, supersonic) {
     $scope.emails = [];
 
     $scope.addEmail = function(newEmail) {

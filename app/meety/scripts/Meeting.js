@@ -1,6 +1,6 @@
 angular
   .module('meety')
-  .factory('meetingService', function($firebaseObject, $firebaseArray) {
+  .factory('Meeting', function($firebaseObject, $firebaseArray) {
     
     var url = 'https://glaring-fire-5657.firebaseio.com/meetings';
     var currentRef = null;

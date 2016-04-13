@@ -5,9 +5,9 @@ module.exports =
   # See styling options for tabs and other native components in app/common/native-styles/ios.css or app/common/native-styles/android.css
   tabs: [
     {
-      title: "Index"
-      id: "index"
-      location: "meety#getting-started" # Supersonic module#view type navigation
+      title: "Request"
+      id: "request"
+      location: "meety#request" # Supersonic module#view type navigation
     }
     {
       title: "Meeting"
@@ -20,25 +20,3 @@ module.exports =
       location: "meety#team"
     }
   ]
-
-  # rootView:
-  #   location: "meety#getting-started"
-
-  preloads: [
-    {
-      id: "rsvp"
-      location: "meety#rsvp"
-    }
-  ]
-
-  # drawers:
-  #   left:
-  #     id: "leftDrawer"
-  #     location: "meety#drawer"
-  #     showOnAppLoad: false
-  #   options:
-  #     animation: "swingingDoor"
-  #
-  # initialView:
-  #   id: "initialView"
-  #   location: "meety#initial-view"
