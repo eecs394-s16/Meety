@@ -4,7 +4,7 @@
  ***********************************************************/
 
 navigation-bar {
-  background-color: #00B5FF;
+  background-color: #CB2027; 
   color: #ffffff;
   padding-left: 6px;
   padding-right: 6px;
@@ -43,13 +43,13 @@ tab-bar {
 }
 
 tab-bar tab-bar-item {
-  color: #b0b1b4;
+  color: black;
   font-family: "Roboto";
   font-size: 10px;
 }
 
 tab-bar tab-bar-item:selected {
-  color: #1596f7;
+  color: #cb2027;
 }
 
 tab-bar divider {
@@ -57,7 +57,7 @@ tab-bar divider {
 }
 
 tab-bar tab-bar-item marker-top:selected {
-  background-color: #1596f7;
+  background-color: #cb2027;
 }
 
 tab-bar-item#team {
