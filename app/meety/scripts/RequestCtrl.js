@@ -1,17 +1,9 @@
 angular
   .module('meety')
-  .controller('RequestCtrl', function($scope, $location, supersonic, Meeting) {
-  	$scope.master = {attendees: [{name: "Gergap", attend: true}]};
-    $scope.startTime = new Date();
-    $scope.endTime = new Date();
-    // $scope.buttonStatus = true;
-
-    // if($scope.master.loc && $scope.master.purpose){
-    //   $scope.buttonStatus = true;
-    // }
-    // else {
-    //   $scope.buttonStatus = false;
-    // }
+  .controller('RequestCtrl', function($scope, supersonic, Meeting) {
+    $scope.master = {attendees: [{name: "Gergap", attend: true}]};
+    $scope.startTime = null;
+    $scope.endTime = null;
 
     $scope.requestMeeting = function (){
       
@@ -48,7 +40,9 @@ angular
     $scope.resetMaster = function() {
       $scope.master.loc = "";
       $scope.master.purpose = "";
-      $scope.master.startTime = "";
-      $scope.master.endTime = "";
+      $scope.master.startTime = null;
+      $scope.master.endTime = null;
+      $scope.startTime = null;
+      $scope.endTime = null;
     };
   });

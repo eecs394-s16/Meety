@@ -7,7 +7,7 @@
     <div ng-repeat="meeting in meetings">
       <super-navigate location="meety#rsvp" data-params-id="{{meeting.$id}}">
         <div class="item">
-            {{meeting.purpose}} {{meeting.hour}}:{{meeting.minutes}} {{meeting.ampm}} at {{meeting.location}}
+          {{meeting.purpose}} {{meeting.startTime | date:'shortTime'}} at {{meeting.loc}}
         </div>
       </super-navigate>
     </div>
