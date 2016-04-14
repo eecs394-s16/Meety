@@ -5,7 +5,8 @@
 
   <div class="list"> 
 
-    <div class="item">Meeting time: {{meetingSpecs.hour}}:{{meetingSpecs.minutes}} {{meetingSpecs.ampm}}; Length: {{meetingSpecs.length}}</div>
+    <div class="item">Start time: {{meetingSpecs.startTime | date:'shortTime'}}</div>
+    <div class="item">End time: {{meetingSpecs.endTime | date:'shortTime'}}</div>
     <div class="item">Location: {{meetingSpecs.location}}</div>
     <div class="item">Meeting purpose: {{meetingSpecs.purpose}}</div>
 
