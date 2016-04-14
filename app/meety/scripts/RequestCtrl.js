@@ -8,7 +8,7 @@ angular
     $scope.requestMeeting = function (){
       
       // check for empty fields
-      if (!$scope.master.location) {
+      if (!$scope.master.loc) {
         supersonic.logger.debug("Empty location field");
         return;
       }
@@ -30,12 +30,15 @@ angular
       supersonic.logger.debug($scope.master);
       Meeting.add($scope.master);
       $scope.resetMaster();
+      var confirmation = {message: "Meeting request successfully created.", buttonLabel: "Great!"};
+
+      supersonic.ui.dialog.alert("Success", confirmation);
     };
 
       // reset fields after successful submission
 
     $scope.resetMaster = function() {
-      $scope.master.location = "";
+      $scope.master.loc = "";
       $scope.master.purpose = "";
       $scope.master.startTime = null;
       $scope.master.endTime = null;
