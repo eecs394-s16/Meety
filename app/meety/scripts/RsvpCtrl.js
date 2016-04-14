@@ -11,14 +11,13 @@ angular
 
     $scope.buttonStatus = buttonStatusEnum.UNCONFIRMED;
 
-   $scope.meetingSpecs = Meeting.find(steroids.view.params.id);
+    Meeting.find(steroids.view.params.id).$bindTo($scope, 'meetingSpecs');   
 
     $scope.acceptMeeting = function(newName){
       supersonic.logger.debug("Accept meeting!");
       if (newName) {
         $scope.meetingSpecs.attendees.push({ name: newName, attend: true });
-
-	      $scope.buttonStatus = buttonStatusEnum.ACCEPTED;
+        $scope.buttonStatus = buttonStatusEnum.ACCEPTED;
       }
     };
 
@@ -26,9 +25,7 @@ angular
       supersonic.logger.debug("Reject meeting!");
       if (newName) {
         $scope.meetingSpecs.attendees.push({ name: newName, attend: false });
-
-	      $scope.buttonStatus = buttonStatusEnum.REJECTED;
+        $scope.buttonStatus = buttonStatusEnum.REJECTED;
       }
     };
-
   });
