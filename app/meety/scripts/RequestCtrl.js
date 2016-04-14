@@ -1,14 +1,22 @@
 angular
   .module('meety')
-  .controller('RequestCtrl', function($scope, supersonic, Meeting) {
+  .controller('RequestCtrl', function($scope, $location, supersonic, Meeting) {
   	$scope.master = {attendees: [{name: "Gergap", attend: true}]};
     $scope.startTime = new Date();
     $scope.endTime = new Date();
+    // $scope.buttonStatus = true;
+
+    // if($scope.master.loc && $scope.master.purpose){
+    //   $scope.buttonStatus = true;
+    // }
+    // else {
+    //   $scope.buttonStatus = false;
+    // }
 
     $scope.requestMeeting = function (){
       
       // check for empty fields
-      if (!$scope.master.location) {
+      if (!$scope.master.loc) {
         supersonic.logger.debug("Empty location field");
         return;
       }
@@ -30,12 +38,15 @@ angular
       supersonic.logger.debug($scope.master);
       Meeting.add($scope.master);
       $scope.resetMaster();
+      var confirmation = {message: "Meeting request successfully created.", buttonLabel: "Great!"};
+
+      supersonic.ui.dialog.alert("Success", confirmation);
     };
 
       // reset fields after successful submission
 
     $scope.resetMaster = function() {
-      $scope.master.location = "";
+      $scope.master.loc = "";
       $scope.master.purpose = "";
       $scope.master.startTime = "";
       $scope.master.endTime = "";

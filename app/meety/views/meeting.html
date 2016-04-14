@@ -5,11 +5,11 @@
 
   <div class="list">
     <div ng-repeat="meeting in meetings">
-      <div class="item">
-        <super-navigate location="meety#rsvp" data-params-id="{{meeting.$id}}">
-          {{meeting.purpose}} {{meeting.hour}}:{{meeting.minutes}} {{meeting.ampm}} at {{meeting.location}}
-        </super-navigate>
-      </div>
+      <super-navigate location="meety#rsvp" data-params-id="{{meeting.$id}}">
+        <div class="item">
+            {{meeting.purpose}} {{meeting.hour}}:{{meeting.minutes}} {{meeting.ampm}} at {{meeting.location}}
+        </div>
+      </super-navigate>
     </div>
   </div>
 </div>
