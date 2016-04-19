@@ -28,14 +28,14 @@ angular
       $scope.master.endTime = $scope.endTime.toJSON();
 
       supersonic.logger.debug($scope.master);
-      Meeting.add($scope.master);
+      
+      Meeting.add($scope.master).then(function(ref) {
+        var rsvpView = new supersonic.ui.View('meety#rsvp');
+        supersonic.ui.layers.push(rsvpView, { params: { id: ref.key() } });
+      });
+
       $scope.resetMaster();
-      var confirmation = {message: "Meeting request successfully created.", buttonLabel: "Great!"};
-
-      supersonic.ui.dialog.alert("Success", confirmation);
     };
-
-      // reset fields after successful submission
 
     $scope.resetMaster = function() {
       $scope.master.loc = "";

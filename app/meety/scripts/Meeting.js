@@ -20,7 +20,7 @@ angular
         return $firebaseObject(ref().child(id));
       },
       add: function(meeting) {
-        ref().push(meeting)
+        return ref().push(meeting);
       }
     };
   });
