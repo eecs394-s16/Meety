@@ -16,4 +16,12 @@
   <button ng-click="loginUser()"></button>
   <p>Message: {{ message2 }}</p>
   <p>Error: {{ error2 }}</p>
+
+  <button ng-click = "logoutUser()">Log Out</button>
+  <div ng-show="authData">
+    <p>Hello</p>
+  </div>
+  <div ng-hide="authData">
+    <p>Welcome, please log in.</p>
+  </div>
 </div>
