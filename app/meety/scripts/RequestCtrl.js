@@ -7,21 +7,32 @@ angular
 
     $scope.requestMeeting = function (){
       
+      var options = {
+        message: "The following fields are empty:\n",
+        buttonLabel: "Close"
+    };
       // check for empty fields
-      if (!$scope.master.loc) {
-        supersonic.logger.debug("Empty location field");
-        return;
-      }
-      if (!$scope.master.purpose) {
-        supersonic.logger.debug("Empty purpose field");
-        return;
-      }
       if (!$scope.startTime) {
         supersonic.logger.debug("Empty startTime field");
-        return;
+        options.message += "Start Time\n";
       }
       if (!$scope.endTime) {
         supersonic.logger.debug("Empty endTime field"); 
+        options.message += "End Time\n";
+      }
+      if (!$scope.master.loc) {
+        supersonic.logger.debug("Empty location field");
+        options.message += "Location\n";
+      }
+      if (!$scope.master.purpose) {
+        supersonic.logger.debug("Empty purpose field");
+        options.message += "Purpose\n";
+      }
+      if (options.message != "The following fields are empty:\n")
+      {
+        supersonic.ui.dialog.alert("Error creating meeting", options).then(function() {
+        supersonic.logger.log("Alert closed.");
+        });
         return;
       }
       $scope.master.startTime = $scope.startTime.toJSON();
