@@ -1,7 +1,7 @@
 angular
   .module('meety')
   .factory('Auth', function($firebaseAuth) {
-    var url = 'https://glaring-fire-5657.firebaseio.com/users';
+    var url = 'https://glaring-fire-5657.firebaseio.com';
     var currentRef = null;
 
     var ref = function() {
@@ -13,7 +13,7 @@ angular
 
     return {
       ref: function() {
-        $firebaseAuth(ref());
+        return $firebaseAuth(ref());
       }
     };
   });
