@@ -7,7 +7,7 @@
   
   <!-- Login -->
   <div ng-show="toggledView === 'login'">
-    <button ng-click="switchView('register')">
+    <button class="button button-block button-positive" ng-click="switchView('register')">
       New? Click here to register
     </button>
     <label class="item item-input item-floating-label">
@@ -20,9 +20,9 @@
 
   <!-- Register -->
   <div ng-show="toggledView === 'register'">
-    <button ng-click="switchView('login')">
-      Returning user? Click here to log in
-    </button>
+    <label class="item item-input item-floating-label">
+      <input type="text" ng-model="registerName" placeholder="Your Name">
+    </label>
     <label class="item item-input item-floating-label">
       <input type="email" ng-model="registerEmail" placeholder="Email">
     </label>
@@ -30,8 +30,11 @@
       <input type="password" ng-model="registerPassword" placeholder="Password">
     </label>
     <label class="item item-input item-floating-label">
-      <input type="text" ng-model="registerName" placeholder="Your Name">
+      <input type="password" ng-model="passConfirm" placeholder="Confirm Password">
     </label>
+    <button class="button button-block button-positive" ng-click="switchView('login')">
+      Returning user? Click here to log in
+    </button>
   </div>
 
 </div>
