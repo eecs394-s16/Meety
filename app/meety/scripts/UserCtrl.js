@@ -14,4 +14,15 @@ angular
         $scope.error = error;
       });
     };
+
+    $scope.loginUser = function() {
+      Auth.ref().$authWithPassword({
+        email: $scope.email2,
+        password: $scope.password2
+      }).then(function(userData) {
+        $scope.message2 = "User authenticated with uid: " + userData.uid;
+      }).catch(function(error) {
+        $scope.error2 = error;
+      });
+    };
   });

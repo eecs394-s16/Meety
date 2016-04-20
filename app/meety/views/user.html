@@ -4,9 +4,16 @@
       User
     </super-navbar-title>
   </super-navbar>
+
   <input type="text" ng-model="email"></input>
   <input type="text" ng-model="password"></input>
   <button ng-click="createUser()"></button>
   <p>Message: {{ message }}</p>
-  <p>Error: {{ error }}</p>    
+  <p>Error: {{ error }}</p>
+
+  <input type="text" ng-model="email2"></input>
+  <input type="text" ng-model="password2"></input>
+  <button ng-click="loginUser()"></button>
+  <p>Message: {{ message2 }}</p>
+  <p>Error: {{ error2 }}</p>
 </div>
