@@ -14,18 +14,26 @@ angular
     Meeting.find(steroids.view.params.id).$bindTo($scope, 'meetingSpecs');   
 
     $scope.acceptMeeting = function(newName){
-      supersonic.logger.debug("Accept meeting!");
-      if (newName) {
-        $scope.meetingSpecs.attendees.push({ name: newName, attend: true });
-        $scope.buttonStatus = buttonStatusEnum.ACCEPTED;
+      var authData = JSON.parse(localStorage.getItem('authData'));
+
+      if (authData) {
+        supersonic.logger.debug("Accept meeting!");
+        if (newName) {
+          $scope.meetingSpecs.attendees.push({ name: newName, attend: true });
+          $scope.buttonStatus = buttonStatusEnum.ACCEPTED;
+        }
       }
     };
 
     $scope.rejectMeeting = function(newName){
-      supersonic.logger.debug("Reject meeting!");
-      if (newName) {
-        $scope.meetingSpecs.attendees.push({ name: newName, attend: false });
-        $scope.buttonStatus = buttonStatusEnum.REJECTED;
+      var authData = JSON.parse(localStorage.getItem('authData'));
+
+      if (authData) {
+        supersonic.logger.debug("Reject meeting!");
+        if (newName) {
+          $scope.meetingSpecs.attendees.push({ name: newName, attend: false });
+          $scope.buttonStatus = buttonStatusEnum.REJECTED;
+        }
       }
     };
   });

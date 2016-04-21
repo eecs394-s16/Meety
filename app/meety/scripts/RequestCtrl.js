@@ -1,17 +1,25 @@
 angular
   .module('meety')
   .controller('RequestCtrl', function($scope, supersonic, Meeting) {
+
     $scope.master = {attendees: [{name: "Gergap", attend: true}]};
     $scope.startTime = null;
     $scope.endTime = null;
     $scope.theDate = null;
 
     $scope.requestMeeting = function (){
+      var authData = JSON.parse(localStorage.getItem("authData"));
+      supersonic.logger.debug(authData);
+      if(!authData) {
+        supersonic.logger.debug("not logged in?");
+        return;
+      }
       
       var options = {
         message: "The following fields are empty:\n",
         buttonLabel: "Close"
-    };
+      };
+
       // check for empty fields
       if (!$scope.theDate) {
         supersonic.logger.debug("Empty Date field");
