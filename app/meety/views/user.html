@@ -1,27 +1,54 @@
-<div ng-controller="UserCtrl">
+<div class="padding" ng-controller="UserCtrl">
   <super-navbar>
     <super-navbar-title>
       User
     </super-navbar-title>
   </super-navbar>
-
-  <input type="text" ng-model="email"></input>
-  <input type="text" ng-model="password"></input>
-  <button ng-click="createUser()"></button>
+  
   <p>Message: {{ message }}</p>
   <p>Error: {{ error }}</p>
 
-  <input type="text" ng-model="email2"></input>
-  <input type="text" ng-model="password2"></input>
-  <button ng-click="loginUser()"></button>
   <p>Message: {{ message2 }}</p>
   <p>Error: {{ error2 }}</p>
 
-  <button ng-click = "logoutUser()">Log Out</button>
-  <div ng-show="authData">
-    <p>Hello</p>
+  <button ng-click="logoutUser()">Logout</button>
+
+  <!-- Login -->
+  <div ng-show="toggledView === 'login'">
+    <button class="button button-block" ng-click="switchView('register')">
+      New? Register here
+    </button>
+    <label class="item item-input item-floating-label">
+      <input type="email" ng-model="loginInputs.email" placeholder="Email">
+    </label>
+    <label class="item item-input item-floating-label">
+      <input type="password" ng-model="loginInputs.pass" placeholder="Password">
+    </label>
+    <button class="button button-block button-positive" ng-click="login(loginInputs)">
+      Login
+    </button>
   </div>
-  <div ng-hide="authData">
-    <p>Welcome, please log in.</p>
+
+  <!-- Register -->
+  <div ng-show="toggledView === 'register'">
+    <button class="button button-block" ng-click="switchView('login')">
+      Returning user? Log in here
+    </button>
+    <label class="item item-input item-floating-label">
+      <input type="text" ng-model="registerInputs.name" placeholder="Your Name">
+    </label>
+    <label class="item item-input item-floating-label">
+      <input type="email" ng-model="registerInputs.email" placeholder="Email">
+    </label>
+    <label class="item item-input item-floating-label">
+      <input type="password" ng-model="registerInputs.pass" placeholder="Password">
+    </label>
+    <label class="item item-input item-floating-label">
+      <input type="password" ng-model="registerInputs.passConfirm" placeholder="Confirm Password">
+    </label>
+    <button class="button button-block button-positive" ng-click="register(registerInputs)">
+      Register
+    </button>
   </div>
+
 </div>
