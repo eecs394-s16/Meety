@@ -29,8 +29,9 @@ angular
     $scope.logoutUser = function() {
       Auth.ref().$unauth();
     };
-
+    
     $scope.auth = Auth.ref();
+    
     $scope.auth.$onAuth(function(authData) {
       $scope.authData = authData;
     });
