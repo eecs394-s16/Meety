@@ -2,7 +2,8 @@
   <super-navbar>
     <super-navbar-title>Meeting Requests</super-navbar-title>
     <super-navbar-button side="right" ng-click="editMeeting()">
-    Edit
+      <span ng-if="buttonStatus">Edit</span>
+      <span ng-if="!buttonStatus">Done</span>
   </super-navbar-button>
   </super-navbar>
 
