@@ -1,15 +1,23 @@
 <div ng-controller="MeetingCtrl">
   <super-navbar>
     <super-navbar-title>Meeting Requests</super-navbar-title>
+    <super-navbar-button side="right" ng-click="editMeeting()">
+    Edit
+  </super-navbar-button>
   </super-navbar>
 
   <div class="list">
     <div ng-repeat="meeting in meetings">
-      <super-navigate location="meety#rsvp" data-params-id="{{meeting.$id}}">
-        <div class="item">
-          {{meeting.purpose}} {{meeting.startTime | date:'shortTime'}} at {{meeting.loc}}
+        <div class="item item-button-right">
+          <super-navigate location="meety#rsvp" data-params-id="{{meeting.$id}}">
+            <div>
+              {{meeting.purpose}} {{meeting.startTime | date:'shortTime'}} at {{meeting.loc}}
+            </div>
+          </super-navigate>
+          <button class="button button-clear button-assertive" ng-show="enableEdit && editPermission(meeting.id)" ng-click="meetings.$remove(meeting)">
+            <i class="icon super-close-circled"></i>
+          </button>
         </div>
-      </super-navigate>
     </div>
   </div>
 </div>
