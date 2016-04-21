@@ -34,5 +34,6 @@ angular
     
     $scope.auth.$onAuth(function(authData) {
       $scope.authData = authData;
+      localStorage.setItem("authData", JSON.stringify(authData));
     });
   });
