@@ -4,6 +4,7 @@ angular
     $scope.master = {attendees: [{name: "Gergap", attend: true}]};
     $scope.startTime = null;
     $scope.endTime = null;
+    $scope.theDate = null;
 
     $scope.requestMeeting = function (){
       
@@ -12,6 +13,10 @@ angular
         buttonLabel: "Close"
     };
       // check for empty fields
+      if (!$scope.theDate) {
+        supersonic.logger.debug("Empty Date field");
+        options.message += "Date\n";
+      }
       if (!$scope.startTime) {
         supersonic.logger.debug("Empty startTime field");
         options.message += "Start Time\n";
@@ -37,6 +42,7 @@ angular
       }
       $scope.master.startTime = $scope.startTime.toJSON();
       $scope.master.endTime = $scope.endTime.toJSON();
+      $scope.master.theDate = $scope.theDate.toJSON();
 
       supersonic.logger.debug($scope.master);
       
