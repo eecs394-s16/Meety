@@ -1,6 +1,6 @@
 angular
   .module('meety')
-  .controller('MeetingCtrl', function($scope, supersonic, Meeting, $timeout) {
+  .controller('MeetingCtrl', function($scope, supersonic, Meeting, $timeout, $filter) {
     // list of meetings
     $scope.meetings = [];
     // change between Edit and Done button
@@ -32,21 +32,29 @@ angular
   };
 
     // remove meeting function, not used since can use firebase remove function
-    $scope.removeMeeting = function(index) {
+    $scope.removeMeeting = function(meeting) {
 
-      var currMeeting = $scope.meetings[index];
+      // filter the date
+      var d = $filter('date')(meeting.theDate, 'shortDate');
+      // filter the start time
+      var t = $filter('date')(meeting.startTime, 'shortTime');
+      // build the message string
+      var m = "Purpose: " + meeting.purpose + "\n" +
+              "Location: " + meeting.loc + "\n" + 
+              "Date and Time: " + d + ", " + t;
+
+      supersonic.logger.debug(m);
       var options = {
-        message: "blerg",
+        message: m,
         // message: "Purpose: " + currMeeting.purpose + "\n" +
         //          "Location: " + currMeeting.loc + "\n" + 
-        //          "Date and Time: " + currMeeting.date: 'shortTime' + " | " + currMeeting.startTime,
+        //          "Date and Time: " + currMeeting.date + " | " + currMeeting.startTime,
         buttonLabels: ["Yes","Cancel"]
       };
-      supersonic.logger.debug(currMeeting);
+
       supersonic.ui.dialog.confirm("Are you sure you want to delete this meeting?", options).then(function(index) {
         if (index == 0) {
-          $scope.meetings.splice(index, 1);
-          $scope.buttonStatus = !$scope.buttonStatus;
+          $scope.meetings.$remove(meeting);
         } else {
           supersonic.logger.log("User canceled deletion");
         }

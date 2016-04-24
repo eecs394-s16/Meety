@@ -15,7 +15,7 @@
               {{meeting.purpose}} {{meeting.startTime | date:'shortTime'}} at {{meeting.loc}}
             </div>
           </super-navigate>
-          <button class="button button-clear button-assertive" ng-show="enableEdit && editPermission(meeting.id)" ng-click="meetings.$remove(meeting)">
+          <button class="button button-clear button-assertive" ng-show="enableEdit && editPermission(meeting.id)" ng-click="removeMeeting(meeting)">
             <i class="icon super-close-circled"></i>
           </button>
         </div>
