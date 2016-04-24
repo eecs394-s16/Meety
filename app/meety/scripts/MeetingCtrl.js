@@ -34,28 +34,27 @@ angular
     // remove meeting function, not used since can use firebase remove function
     $scope.removeMeeting = function(meeting) {
 
-      // filter the date
+      // filter the date to be standard mm/dd/yyyy
       var d = $filter('date')(meeting.theDate, 'shortDate');
-      // filter the start time
+      // filter the start time to be hh:mm pm
       var t = $filter('date')(meeting.startTime, 'shortTime');
       // build the message string
       var m = "Purpose: " + meeting.purpose + "\n" +
               "Location: " + meeting.loc + "\n" + 
               "Date and Time: " + d + ", " + t;
 
-      supersonic.logger.debug(m);
+      // options object for alert with meeting message and confirm/cancel buttons
       var options = {
         message: m,
-        // message: "Purpose: " + currMeeting.purpose + "\n" +
-        //          "Location: " + currMeeting.loc + "\n" + 
-        //          "Date and Time: " + currMeeting.date + " | " + currMeeting.startTime,
         buttonLabels: ["Yes","Cancel"]
       };
-
+      // send confirmation alert when user tries to delete meeting
       supersonic.ui.dialog.confirm("Are you sure you want to delete this meeting?", options).then(function(index) {
         if (index == 0) {
+          // remove the meeting if user confirms
           $scope.meetings.$remove(meeting);
         } else {
+          // otherwise do nothing and send a message to the debug logger
           supersonic.logger.log("User canceled deletion");
         }
       });
