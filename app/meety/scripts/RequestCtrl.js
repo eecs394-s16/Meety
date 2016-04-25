@@ -51,6 +51,7 @@ angular
       $scope.master.startTime = $scope.startTime.toJSON();
       $scope.master.endTime = $scope.endTime.toJSON();
       $scope.master.theDate = $scope.theDate.toJSON();
+      $scope.master.uid = authData.uid;
 
       supersonic.logger.debug($scope.master);
       
