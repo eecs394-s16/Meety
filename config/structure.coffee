@@ -3,12 +3,11 @@
 module.exports =
 
   # See styling options for tabs and other native components in app/common/native-styles/ios.css or app/common/native-styles/android.css
+  initialView:
+    id: "user"
+    location: "meety#user"
+
   tabs: [
-    {
-      title: "User"
-      id: "user"
-      location: "meety#user"
-    }
     {
       title: "Request"
       id: "request"
