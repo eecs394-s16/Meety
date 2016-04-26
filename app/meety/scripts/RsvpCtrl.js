@@ -24,7 +24,7 @@ angular
         // push new attendee to firebase object, updating meetingSpecs and display
         // update button status field to show accepted button selected
         if (newName) {
-          $scope.meetingSpecs.attendees.push({ name: newName, attend: true });
+          $scope.meetingSpecs.attendees.push({ name: newName, attend: true, uid: authData.uid });
           $scope.buttonStatus = buttonStatusEnum.ACCEPTED;
         }
       }
@@ -36,7 +36,7 @@ angular
       if (authData) {
         supersonic.logger.debug("Reject meeting!");
         if (newName) {
-          $scope.meetingSpecs.attendees.push({ name: newName, attend: false });
+          $scope.meetingSpecs.attendees.push({ name: newName, attend: false, uid: authData.uid });
           $scope.buttonStatus = buttonStatusEnum.REJECTED;
         }
       }

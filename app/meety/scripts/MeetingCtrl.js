@@ -13,7 +13,7 @@ angular
     $scope.getMeetings = function() {
       var authData = JSON.parse(localStorage.getItem("authData"));
       if (authData) {
-        $scope.meetings = Meeting.all();
+        $scope.meetings = Meeting.all(authData.uid);
       } else {
         $scope.meetings = [];
       }

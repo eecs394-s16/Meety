@@ -13,10 +13,12 @@ angular
     }
 
     return {
-      all: function() {
-        return $firebaseArray(ref());
+      all: function(uid) {
+        var query = ref().orderByChild('uid').equalTo(uid);
+        return $firebaseArray(query);
       },
       find: function(id) {
+        // this doesn't check uid
         return $firebaseObject(ref().child(id));
       },
       add: function(meeting) {

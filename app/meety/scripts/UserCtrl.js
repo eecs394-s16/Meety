@@ -78,6 +78,7 @@ angular
         password: input.pass
       }).then(function(userData) {
         $scope.message2 = "User created with uid: " + userData.uid;
+        $scope.login(input);
       }).catch(function(error) {
         $scope.error2 = error;
       });
