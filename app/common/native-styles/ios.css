@@ -34,8 +34,8 @@ tab-bar tab-bar-item:selected {
   color: #cb2027;
 }
 
-tab-bar-item#team {
-  background-image: url(icons/ios-people.svg);
+tab-bar-item#settings {
+  background-image: url(icons/gear-a.svg);
 }
 
 tab-bar-item#request {
