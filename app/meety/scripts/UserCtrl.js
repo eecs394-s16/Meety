@@ -15,6 +15,13 @@ angular
     
     // get email and password from form, attempt to login with firebase
     $scope.login = function(input) {
+
+      
+      if(!input.email || !input.pass) {
+        supersonic.ui.dialog.alert("Enter an email and password.");
+        return;
+      }
+
       Auth.ref().$authWithPassword({
         email: input.email,
         password: input.pass
