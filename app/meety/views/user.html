@@ -5,15 +5,6 @@
     </super-navbar-title>
   </super-navbar>
   
-  <!-- Debugging -->
-  <!-- <p>Message: {{ message }}</p>
-  <p>Error: {{ error }}</p>
-
-  <p>Message: {{ message2 }}</p>
-  <p>Error: {{ error2 }}</p>
-
-  <button ng-click="logoutUser()">Logout</button> -->
-
   <!-- Login -->
   <div ng-show="toggledView === 'login'">
     <button class="button button-block" ng-click="switchView('register')">
@@ -52,4 +43,8 @@
     </button>
   </div>
 
+  <!-- Logout -->
+  <div ng-if="authData">
+    <button class="button button-block button-positive" ng-click="logoutUser()">Logout</button>
+  </div>
 </div>
