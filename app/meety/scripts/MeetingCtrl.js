@@ -55,13 +55,14 @@ angular
       supersonic.ui.dialog.confirm("Are you sure you want to delete this meeting?", options).then(function(index) {
         if (index == 0) {
           // remove the meeting if user confirms
-          $scope.meetings.$remove(meeting);
+          $scope.meetings.$remove(meeting).then(function() {
 
           // if user has deleted the only remaining meeting, toggle buttons back to normal
-          if ($scope.meetings.length == 1 && $scope.meetings[0] == meeting)
+          if ($scope.meetings.length == 0)
           {
             $scope.editMeeting();
           }
+        });
 
         } else {
           // otherwise do nothing and send a message to the debug logger
