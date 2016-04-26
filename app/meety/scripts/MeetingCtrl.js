@@ -58,7 +58,7 @@ angular
           $scope.meetings.$remove(meeting).then(function() {
 
           // if user has deleted the only remaining meeting, toggle buttons back to normal
-          if ($scope.meetings.length == 0)
+          if (($scope.meetings.length == 1 && $scope.meetings[0] == meeting) || $scope.meetings.length == 0)
           {
             $scope.editMeeting();
           }
@@ -69,7 +69,6 @@ angular
           // supersonic.logger.log("User canceled deletion");
         }
       });
-
     };
 
     // skeleton for editing permission
