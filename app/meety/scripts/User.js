@@ -16,7 +16,7 @@ angular
       find: function(uid) {
         var query = ref().orderByChild('uid').equalTo(uid).limitToFirst();
         return $firebaseObject(query);
-      }
+      },
       add: function(uid, name) {
         return ref().push({uid: uid, name: name});
       }
