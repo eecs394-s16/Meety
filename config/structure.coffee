@@ -19,8 +19,8 @@ module.exports =
       location: "meety#meeting"
     }
     {
-      title: "Team"
-      id: "team"
-      location: "meety#team"
+      title: "Settings"
+      id: "settings"
+      location: "meety#settings"
     }
   ]

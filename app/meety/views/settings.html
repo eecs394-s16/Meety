@@ -1,0 +1,18 @@
+<div ng-controller="SettingsCtrl">
+  <super-navbar>
+    <super-navbar-title>
+      Settings
+    </super-navbar-title>
+  </super-navbar>
+
+  <div class="list">
+    <div class="item">
+      <super-navigate location="meety#team">
+        <div>Team</div>
+      </super-navigate>
+    </div>
+    <div class="item">
+      <div ng-click="logoutUser()">Logout</div>
+    </div>
+  </div>
+</div>
