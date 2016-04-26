@@ -27,8 +27,11 @@ angular
 
     // toggle bools for edit button and delete button
     $scope.editMeeting = function(){
-      $scope.enableEdit = !$scope.enableEdit;
-      $scope.buttonStatus = !$scope.buttonStatus;
+      // only if there are currently meetings
+      if ($scope.meetings.length) {
+        $scope.enableEdit = !$scope.enableEdit;
+        $scope.buttonStatus = !$scope.buttonStatus;
+      }
   };
 
     // remove meeting function, not used since can use firebase remove function
@@ -53,6 +56,17 @@ angular
         if (index == 0) {
           // remove the meeting if user confirms
           $scope.meetings.$remove(meeting);
+
+          supersonic.logger.log("user deleted");
+
+          // if user has deleted the only remaining meeting, toggle buttons back to normal
+          if ($scope.meetings.length == 1 && $scope.meetings[0] == meeting)
+          {
+            supersonic.logger.log("meetings empty");
+
+            $scope.editMeeting();
+          }
+
         } else {
           // otherwise do nothing and send a message to the debug logger
           supersonic.logger.log("User canceled deletion");
