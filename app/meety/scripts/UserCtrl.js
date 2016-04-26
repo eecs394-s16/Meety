@@ -22,6 +22,7 @@ angular
         $scope.message = "User authenticated with uid: " + userData.uid;
       }).catch(function(error) {
         $scope.error = error;
+        supersonic.ui.dialog.alert("Failed to log in:", error);
       });
     };
 
@@ -80,7 +81,7 @@ angular
         $scope.message2 = "User created with uid: " + userData.uid;
         $scope.login(input);
       }).catch(function(error) {
-        $scope.error2 = error;
+        supersonic.ui.dialog.alert("Error registering: ", error);
       });
     };    
 
