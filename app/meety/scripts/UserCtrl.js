@@ -1,6 +1,6 @@
 angular
   .module('meety')
-  .controller('UserCtrl', function($scope, supersonic, Auth) {
+  .controller('UserCtrl', function($scope, supersonic, Auth, User) {
 
     // which view is currently being shown
     $scope.toggledView = "login";
@@ -86,6 +86,7 @@ angular
         password: input.pass
       }).then(function(userData) {
         $scope.message2 = "User created with uid: " + userData.uid;
+        User.add(userData.uid, input.name);
         $scope.login(input);
       }).catch(function(error) {
         supersonic.ui.dialog.alert("Error registering: ", error);
@@ -102,5 +103,8 @@ angular
     $scope.auth.$onAuth(function(authData) {
       $scope.authData = authData;
       localStorage.setItem("authData", JSON.stringify(authData));
+      if (authData != null){
+        supersonic.ui.initialView.dismiss();
+      }
     });
   });
