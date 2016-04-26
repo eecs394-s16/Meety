@@ -13,6 +13,7 @@ angular
     }
 
     return {
+      // find the name of the user based on user id (email)
       find: function(uid) {
         var query = ref().orderByChild('uid').equalTo(uid).limitToFirst();
         return $firebaseObject(query);
