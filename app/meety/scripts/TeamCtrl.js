@@ -12,7 +12,7 @@ angular
     $scope.addEmail = function(newEmail) {
     	if (newEmail) {
         supersonic.logger.debug($scope.emails);
-	    	$scope.emails.push(newEmail);
+	    	$scope.emails.push(newEmail.toLowerCase());
         //add to local storage
         $scope.setTeamStorage()
 	    	$scope.newEmail = "";
