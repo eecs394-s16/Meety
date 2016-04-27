@@ -13,15 +13,17 @@
 
     <div class="item item-divider">Can you make the meeting?</div>
 
-    <div class="item item-input">
-      <label class="item-input-wrapper">
-        <input type="text" placeholder="Name" ng-model="newName" required>
-      </label>
+    <div ng-if = "!unselected">
+      <div class="item button-bar">
+        <a class="button button-balanced super-checkmark-round" ng-click="acceptMeeting()" ng-class="{'button-clear': !attendee.attend}"></a>
+        <a class="button button-assertive super-close-round" ng-click="rejectMeeting()" ng-class="{'button-clear': attendee.attend}"></a>
+      </div>
     </div>
-
-    <div class="item button-bar">
-      <a class="button button-balanced super-checkmark-round" ng-click="acceptMeeting(newName)" ng-class="{'button-clear': buttonStatus != 1}" ng-disabled="buttonStatus"></a>
-      <a class="button button-assertive super-close-round" ng-click="rejectMeeting(newName)" ng-class="{'button-clear': buttonStatus != 2}" ng-disabled="buttonStatus"></a>
+    <div ng-if = "unselected">
+      <div class="item button-bar">
+        <a class="button button-balanced super-checkmark-round" ng-click="acceptMeeting()" ng-class="{'button-clear': true}"></a>
+        <a class="button button-assertive super-close-round" ng-click="rejectMeeting()" ng-class="{'button-clear': true}"></a>
+      </div>
     </div>
 
     <div class="item item-divider">

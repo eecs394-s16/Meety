@@ -7,6 +7,7 @@ angular
     // input vars for registering and logging in
     $scope.registerInputs = {};
     $scope.loginInputs = {};
+    $scope.loggedin = false;
 
     // updates var to next view
     $scope.switchView = function(view) {
@@ -107,4 +108,5 @@ angular
         supersonic.ui.initialView.dismiss();
       }
     });
+
   });

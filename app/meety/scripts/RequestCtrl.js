@@ -1,9 +1,11 @@
 angular
   .module('meety')
-  .controller('RequestCtrl', function($scope, supersonic, Meeting) {
+  .controller('RequestCtrl', function($scope, supersonic, Meeting, User) {
 
     // object that holds meeting data, attendees initialized with dummy
-    $scope.master = {attendees: [{name: "Gergap", attend: true}]};
+    var authData = JSON.parse(localStorage.getItem("authData"));
+    User.find(authData.uid).$bindTo($scope, 'user');
+    $scope.master = {uid: "bogus"};
 
     // initialize start, end time vars, date var
     $scope.startTime = null;
@@ -58,11 +60,18 @@ angular
         return;
       }
 
+      //$scope.master["attendees"] = {};
+      //$scope.master.attendees[authData.uid] = {name: authData.name};
+
       // convert the date and time objects to JSON objects
       $scope.master.startTime = $scope.startTime.toJSON();
       $scope.master.endTime = $scope.endTime.toJSON();
       $scope.master.theDate = $scope.theDate.toJSON();
       $scope.master.uid = authData.uid;
+      $scope.master.attendees = {};
+      $scope.master.attendees[authData.uid] = {name: $scope.user.name, attend: true};
+
+
 
       // debugging message
       supersonic.logger.debug($scope.master);
