@@ -21,6 +21,14 @@ angular
         // this doesn't check uid
         return $firebaseObject(ref().child(id));
       },
+      addAttendee: function(id, uid, name, attend){
+        var attendeeRef = ref().child(id).child("attendees").child(uid);
+        return attendeeRef.set({name: name, attend: attend});
+      },
+      findAttendee: function(id, uid){
+        var attendeeRef = ref().child(id).child("attendees").child(uid);
+        return $firebaseObject(attendeeRef);
+      },
       add: function(meeting) {
         return ref().push(meeting);
       }

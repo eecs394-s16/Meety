@@ -15,11 +15,12 @@ angular
     return {
       // find the name of the user based on user id (email)
       find: function(uid) {
-        var query = ref().orderByChild('uid').equalTo(uid).limitToFirst();
-        return $firebaseObject(query);
+        var userRef = ref().child(uid);
+        return $firebaseObject(userRef);
       },
       add: function(uid, name) {
-        return ref().push({uid: uid, name: name});
+        var userRef = ref().child(uid);
+        return userRef.set({name: name});
       }
     };
   });
