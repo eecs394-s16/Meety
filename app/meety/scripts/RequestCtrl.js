@@ -17,12 +17,11 @@ angular
 
       // check to see if user is logged in, if not, return out of function
       var authData = JSON.parse(localStorage.getItem("authData"));
-      supersonic.logger.debug(authData);
       if(!authData) {
         supersonic.logger.debug("not logged in?");
         return;
       }
-      
+
       // options object for failed submission alert
       var options = {
         message: "The following fields are empty:\n",
@@ -39,7 +38,7 @@ angular
         options.message += "Start Time\n";
       }
       if (!$scope.endTime) {
-        supersonic.logger.debug("Empty endTime field"); 
+        supersonic.logger.debug("Empty endTime field");
         options.message += "End Time\n";
       }
       if (!$scope.master.loc) {
@@ -73,9 +72,25 @@ angular
 
 
 
+      // add team eamils to database
+      $scope.teamEmails = JSON.parse(localStorage.getItem("team"));
+
+      // add your to team eamils
+      $scope.master.teamEmails = {};
+
+      $scope.master.teamEmails[authData.password.email.replace('@', '').replace(/\./g, '')] =  authData.password.email;
+
+
+      if (!$scope.teamEmails) {
+      } else {
+        for(var i = 0; i < $scope.teamEmails.length; i++) {
+          $scope.master.teamEmails[$scope.teamEmails[i].replace('@', '').replace(/\./g, '')] = $scope.teamEmails[i];
+        }
+      }
+
       // debugging message
       supersonic.logger.debug($scope.master);
-      
+
       // add the meeting object to firebase meetings list
       // then navigate user to that meeting's page
       Meeting.add($scope.master).then(function(ref) {

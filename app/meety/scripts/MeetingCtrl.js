@@ -13,12 +13,24 @@ angular
     $scope.getMeetings = function() {
       var authData = JSON.parse(localStorage.getItem("authData"));
       if (authData) {
-        $scope.meetings = Meeting.all(authData.uid);
+        $scope.meetings = Meeting.memberMeeting(authData.password.email);
+        supersonic.logger.log($scope.meetings);
       } else {
         $scope.meetings = [];
       }
     };
-    
+
+    $scope.yourMeeting = function(meeting){
+      supersonic.logger.log("tr");
+      if (meeting.teamEmails.indexOf(authData.password.email) > -1) {
+        supersonic.logger.log("tra");
+        return true;
+      } else {
+        supersonic.logger.log("nah");
+        return false;
+      }
+    };
+
     $timeout($scope.getMeetings, 100);
 
     supersonic.ui.views.current.whenVisible( function() {
@@ -43,7 +55,7 @@ angular
       var t = $filter('date')(meeting.startTime, 'shortTime');
       // build the message string
       var m = "Purpose: " + meeting.purpose + "\n" +
-              "Location: " + meeting.loc + "\n" + 
+              "Location: " + meeting.loc + "\n" +
               "Date and Time: " + d + ", " + t;
 
       // options object for alert with meeting message and confirm/cancel buttons
