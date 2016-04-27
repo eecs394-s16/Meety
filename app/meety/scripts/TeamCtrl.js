@@ -27,4 +27,6 @@ angular
     $scope.setTeamStorage = function(){
       localStorage.setItem("team", JSON.stringify($scope.emails));
     }
+
+    
   });
