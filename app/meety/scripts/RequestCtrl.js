@@ -15,7 +15,6 @@ angular
 
       // check to see if user is logged in, if not, return out of function
       var authData = JSON.parse(localStorage.getItem("authData"));
-      supersonic.logger.debug(authData);
       if(!authData) {
         supersonic.logger.debug("not logged in?");
         return;
@@ -65,13 +64,19 @@ angular
       $scope.master.uid = authData.uid;
 
       // add team eamils to database
-      $scope.master.teamEmails = JSON.parse(localStorage.getItem("team"));
+      $scope.teamEmails = JSON.parse(localStorage.getItem("team"));
 
       // add your to team eamils
-      if ($scope.master.teamEmails == null) {
-        $scope.master.teamEmails = [authData.password.email];
+      $scope.master.teamEmails = {};
+
+      $scope.master.teamEmails[authData.password.email.replace('@', '').replace(/\./g, '')] =  authData.password.email;
+
+
+      if (!$scope.teamEmails) {
       } else {
-        $scope.master.teamEmails.push(authData.password.email);
+        for(var i = 0; i < $scope.teamEmails.length; i++) {
+          $scope.master.teamEmails[$scope.teamEmails[i].replace('@', '').replace(/\./g, '')] = $scope.teamEmails[i];
+        }
       }
 
       // debugging message
