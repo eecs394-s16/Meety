@@ -14,6 +14,12 @@ angular
       var authData = JSON.parse(localStorage.getItem("authData"));
       if (authData) {
         $scope.meetings = Meeting.all(authData.uid);
+        for (var meeting in $scope.meetings) {
+          if ('teamEmails' in meeting && meeting.teamEmails.indexOf(authData.password.email) != -1)
+          {} else {
+            $scope.meetings.$remove(meeting);
+          }
+        }
       } else {
         $scope.meetings = [];
       }
