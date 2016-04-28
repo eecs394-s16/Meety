@@ -61,11 +61,11 @@ angular
       // options object for alert with meeting message and confirm/cancel buttons
       var options = {
         message: m,
-        buttonLabels: ["Yes","Cancel"]
+        buttonLabels: ["Cancel","Yes"]
       };
       // send confirmation alert when user tries to delete meeting
       supersonic.ui.dialog.confirm("Are you sure you want to delete this meeting?", options).then(function(index) {
-        if (index == 0) {
+        if (index == 1) {
           // remove the meeting if user confirms
           $scope.meetings.$remove(meeting);
 
