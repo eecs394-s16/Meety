@@ -19,8 +19,8 @@ angular
     	}
     };
 
-    $scope.removeEmail = function(index) {
-    	$scope.emails.splice(index, 1);
+    $scope.removeEmail = function(email) {
+      $scope.emails.splice($scope.emails.indexOf(email),1);
       $scope.setTeamStorage();
     };
 
