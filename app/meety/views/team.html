@@ -22,7 +22,7 @@
     <div ng-repeat="email in emails">
       <div class="item item-button-right">
         {{ email }}
-        <button class="button button-clear button-assertive" ng-click="removeEmail($index)">
+        <button class="button button-clear button-assertive" ng-click="removeEmail(email)">
           <i class="icon super-close-circled"></i>
         </button>
       </div>

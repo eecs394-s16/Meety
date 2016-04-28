@@ -12,15 +12,15 @@ angular
     $scope.addEmail = function(newEmail) {
     	if (newEmail) {
         supersonic.logger.debug($scope.emails);
-	    	$scope.emails.push(newEmail);
+	    	$scope.emails.push(newEmail.toLowerCase());
         //add to local storage
         $scope.setTeamStorage()
 	    	$scope.newEmail = "";
     	}
     };
 
-    $scope.removeEmail = function(index) {
-    	$scope.emails.splice(index, 1);
+    $scope.removeEmail = function(email) {
+      $scope.emails.splice($scope.emails.indexOf(email),1);
       $scope.setTeamStorage();
     };
 
