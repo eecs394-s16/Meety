@@ -4,7 +4,7 @@ Built using Supersonic and Firebase
 
 ## Team Members
 
-[benmel](https://github.com/benmel), [ChosunOne](https://github.com/chosunone), [Grygoree](https://github.com/Grygoree), [jnbohrer](https://github.com/jnbohrer), [MuyangAmigo](MuyangAmigo)
+[benmel](https://github.com/benmel), [ChosunOne](https://github.com/chosunone), [Grygoree](https://github.com/Grygoree), [jnbohrer](https://github.com/jnbohrer), [MuyangAmigo](https://github.com/MuyangAmigo)
 
 ## Usage
 
